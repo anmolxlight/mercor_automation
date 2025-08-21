@@ -1,0 +1,15 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+AIRTABLE_API_KEY=os.getenv("AIRTABLE_API_KEY","")
+AIRTABLE_BASE_ID=os.getenv("AIRTABLE_BASE_ID","")
+AIRTABLE_API_URL=os.getenv("AIRTABLE_API_URL","https://api.airtable.com/v0")
+AIRTABLE_TIMEOUT=float(os.getenv("AIRTABLE_TIMEOUT","15"))
+LLM_PROVIDER=os.getenv("LLM_PROVIDER","")
+OPENAI_API_KEY=os.getenv("OPENAI_API_KEY","")
+ANTHROPIC_API_KEY=os.getenv("ANTHROPIC_API_KEY","")
+LLM_MAX_TOKENS=int(os.getenv("LLM_MAX_TOKENS","512"))
+LLM_RETRY_MAX=int(os.getenv("LLM_RETRY_MAX","3"))
+LLM_RETRY_BASE=float(os.getenv("LLM_RETRY_BASE","1.5"))
+TIER1_COMPANIES=set([s.strip() for s in os.getenv("TIER1_COMPANIES","Google,Meta,OpenAI,Microsoft,Apple,Amazon,NVIDIA,DeepMind,Anthropic").split(",") if s.strip()])
+TARGET_COUNTRIES=set([s.strip() for s in os.getenv("TARGET_COUNTRIES","United States,USA,US,Canada,United Kingdom,UK,Germany,India,Spain").split(",") if s.strip()])
